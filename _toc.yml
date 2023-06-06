@@ -3,11 +3,15 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: stock/stock
-- file: research/research
-- file: crypto/crypto
-- file: notebooks
-  sections:
-  - file: markdown-notebooks
+parts:
+  - caption: Name of Part 1
+    chapters:
+    - file: markdown
+    - file: stock/stock
+  - caption: Name of Part 2
+    chapters:
+    - file: research/research
+    - file: crypto/crypto
+    - file: notebooks
+      sections:
+      - file: markdown-notebooks
