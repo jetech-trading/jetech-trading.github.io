@@ -4,14 +4,16 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Name of Part 1
+  - caption: Trading
     chapters:
     - file: markdown
     - file: stock/stock
-  - caption: Name of Part 2
-    chapters:
-    - file: research/research
-    - file: crypto/crypto
-    - file: notebooks
       sections:
       - file: markdown-notebooks
+    - file: crypto/crypto
+      sections:
+      - file: crypto/20230606 
+  - caption: AI
+    chapters:
+    - file: research/research
+    - file: notebooks

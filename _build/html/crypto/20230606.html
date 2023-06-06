@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Stock &#8212; Trading Research</title>
+    <title>2023.06.06 market test &#8212; Trading Research</title>
   
   
   
@@ -61,12 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'stock/stock';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'crypto/20230606';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="../markdown-notebooks.html" />
-    <link rel="prev" title="Markdown Files" href="../markdown.html" />
+    <link rel="next" title="Content with notebooks" href="../notebooks.html" />
+    <link rel="prev" title="Crypto" href="crypto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,12 +160,12 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Trading</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Stock</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../stock/stock.html">Stock</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../crypto/crypto.html">Crypto</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../crypto/20230606.html">2023.06.06 market test</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="crypto.html">Crypto</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2023.06.06 market test</a></li>
 </ul>
 </li>
 </ul>
@@ -226,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/stock/stock.md" target="_blank"
+      <li><a href="../_sources/crypto/20230606.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -236,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -306,7 +306,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Stock</h1>
+    <h1>2023.06.06 market test</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -320,9 +320,123 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="stock">
-<h1>Stock<a class="headerlink" href="#stock" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="market-test">
+<h1>2023.06.06 market test<a class="headerlink" href="#market-test" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCD&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.024965</td>
+      <td>0.922649</td>
+      <td>0.088545</td>
+      <td>2.449521</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.018685</td>
+      <td>-1.483038</td>
+      <td>-1.587044</td>
+      <td>0.348515</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.623005</td>
+      <td>-0.419872</td>
+      <td>0.545277</td>
+      <td>-1.365981</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.618291</td>
+      <td>0.429091</td>
+      <td>1.296309</td>
+      <td>0.656668</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.076140</td>
+      <td>0.023783</td>
+      <td>-0.754964</td>
+      <td>0.353717</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.099701</td>
+      <td>-0.590879</td>
+      <td>-1.172978</td>
+      <td>-0.128286</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.483256</td>
+      <td>-1.838408</td>
+      <td>-0.115070</td>
+      <td>-0.448370</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1.397017</td>
+      <td>1.543851</td>
+      <td>-1.863602</td>
+      <td>0.903252</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.326532</td>
+      <td>-0.504526</td>
+      <td>0.450038</td>
+      <td>0.186986</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.380400</td>
+      <td>-1.680212</td>
+      <td>1.222087</td>
+      <td>1.447390</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 
@@ -339,7 +453,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./stock"
+            path: "./crypto"
         },
         predefinedOutput: true
     }
@@ -358,20 +472,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../markdown.html"
+       href="crypto.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">Crypto</p>
       </div>
     </a>
     <a class="right-next"
-       href="../markdown-notebooks.html"
+       href="../notebooks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        <p class="prev-next-title">Content with notebooks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

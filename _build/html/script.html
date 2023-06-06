@@ -151,22 +151,25 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    JeTech
+                    소개
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Name of Part 1</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Trading</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stock/stock.html">Stock</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Name of Part 2</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="crypto/crypto.html">Crypto</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks.html">Content with notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="stock/stock.html">Stock</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="crypto/crypto.html">Crypto</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="crypto/20230606.html">2023.06.06 market test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 </ul>
 
     </div>
@@ -328,14 +331,18 @@ document.write(`
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>./
-
-<span class="o">!</span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-Running Jupyter-Book v0.15.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\User\anaconda3\envs\tf\lib\site-packages\zmq\_future.py:681: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Jupyter-Book v0.15.1
 Source Folder: c:\workspace\jetech-trading.github.io
 Config Path: c:\workspace\jetech-trading.github.io\_config.yml
 Output Path: c:\workspace\jetech-trading.github.io\_build\html
@@ -346,19 +353,18 @@ Output Path: c:\workspace\jetech-trading.github.io\_build\html
 <span class=" -Color -Color-Bold">myst-nb v0.17.2:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, execution_mode=&#39;force&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
 Using jupyter-cache at: C:\workspace\jetech-trading.github.io\_build\.jupyter_cache
 <span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
-<span class=" -Color -Color-Bold">building [html]: </span>targets for 8 source files that are out of date
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 2 source files that are out of date
 <span class=" -Color -Color-Bold">updating environment: </span>0 added, 2 changed, 0 removed
 <span class=" -Color -Color-Bold">reading sources... </span>[ 50%] <span class=" -Color -Color-Magenta">intro</span>                                                
 <span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">script</span>                                               
 c:\workspace\jetech-trading.github.io\script.ipynb: Executing notebook using local CWD [mystnb]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\User\anaconda3\envs\tf\lib\site-packages\zmq\_future.py:681: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
-  self._get_loop()
-</pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To https://github.com/jetech-trading/jetech-trading.github.io.git
-   2a4d4c5..4beceb3  gh-pages -&gt; gh-pages
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
 </pre></div>
 </div>
 </div>
@@ -376,78 +382,43 @@ c:\workspace\jetech-trading.github.io\script.ipynb: Executing notebook using loc
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: in the working copy of &#39;_build/html/_sources/notebooks.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of &#39;_build/html/_sources/script.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of &#39;_build/jupyter_execute/markdown-notebooks.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of &#39;_build/jupyter_execute/notebooks.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of &#39;_build/jupyter_execute/research/Untitled.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: in the working copy of &#39;_build/html/_sources/script.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of &#39;_build/jupyter_execute/script.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
-warning: in the working copy of &#39;notebooks.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of &#39;script.ipynb&#39;, LF will be replaced by CRLF the next time Git touches it
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main 746e86d] update from windows
- 27 files changed, 634 insertions(+), 562 deletions(-)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[main bda4b39] update from windows
+ 20 files changed, 359 insertions(+), 512 deletions(-)
+branch &#39;main&#39; set up to track &#39;origin/main&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Resolving deltas:   0% (0/51)        
-remote: Resolving deltas:   1% (1/51)        
-remote: Resolving deltas:   3% (2/51)        
-remote: Resolving deltas:   5% (3/51)        
-remote: Resolving deltas:   7% (4/51)        
-remote: Resolving deltas:   9% (5/51)        
-remote: Resolving deltas:  11% (6/51)        
-remote: Resolving deltas:  13% (7/51)        
-remote: Resolving deltas:  15% (8/51)        
-remote: Resolving deltas:  17% (9/51)        
-remote: Resolving deltas:  19% (10/51)        
-remote: Resolving deltas:  21% (11/51)        
-remote: Resolving deltas:  23% (12/51)        
-remote: Resolving deltas:  25% (13/51)        
-remote: Resolving deltas:  27% (14/51)        
-remote: Resolving deltas:  29% (15/51)        
-remote: Resolving deltas:  31% (16/51)        
-remote: Resolving deltas:  33% (17/51)        
-remote: Resolving deltas:  35% (18/51)        
-remote: Resolving deltas:  37% (19/51)        
-remote: Resolving deltas:  39% (20/51)        
-remote: Resolving deltas:  41% (21/51)        
-remote: Resolving deltas:  43% (22/51)        
-remote: Resolving deltas:  45% (23/51)        
-remote: Resolving deltas:  47% (24/51)        
-remote: Resolving deltas:  49% (25/51)        
-remote: Resolving deltas:  50% (26/51)        
-remote: Resolving deltas:  52% (27/51)        
-remote: Resolving deltas:  54% (28/51)        
-remote: Resolving deltas:  56% (29/51)        
-remote: Resolving deltas:  58% (30/51)        
-remote: Resolving deltas:  60% (31/51)        
-remote: Resolving deltas:  62% (32/51)        
-remote: Resolving deltas:  64% (33/51)        
-remote: Resolving deltas:  66% (34/51)        
-remote: Resolving deltas:  68% (35/51)        
-remote: Resolving deltas:  70% (36/51)        
-remote: Resolving deltas:  72% (37/51)        
-remote: Resolving deltas:  74% (38/51)        
-remote: Resolving deltas:  76% (39/51)        
-remote: Resolving deltas:  78% (40/51)        
-remote: Resolving deltas:  80% (41/51)        
-remote: Resolving deltas:  82% (42/51)        
-remote: Resolving deltas:  84% (43/51)        
-remote: Resolving deltas:  86% (44/51)        
-remote: Resolving deltas:  88% (45/51)        
-remote: Resolving deltas:  90% (46/51)        
-remote: Resolving deltas:  92% (47/51)        
-remote: Resolving deltas:  94% (48/51)        
-remote: Resolving deltas:  96% (49/51)        
-remote: Resolving deltas:  98% (50/51)        
-remote: Resolving deltas: 100% (51/51)        
-remote: Resolving deltas: 100% (51/51), completed with 19 local objects.        
-remote: error: GH006: Protected branch update failed for refs/heads/main.        
-remote: error: At least 1 approving review is required by reviewers with write access.        
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Resolving deltas:   0% (0/23)        
+remote: Resolving deltas:   4% (1/23)        
+remote: Resolving deltas:   8% (2/23)        
+remote: Resolving deltas:  13% (3/23)        
+remote: Resolving deltas:  17% (4/23)        
+remote: Resolving deltas:  21% (5/23)        
+remote: Resolving deltas:  26% (6/23)        
+remote: Resolving deltas:  30% (7/23)        
+remote: Resolving deltas:  34% (8/23)        
+remote: Resolving deltas:  39% (9/23)        
+remote: Resolving deltas:  43% (10/23)        
+remote: Resolving deltas:  47% (11/23)        
+remote: Resolving deltas:  52% (12/23)        
+remote: Resolving deltas:  56% (13/23)        
+remote: Resolving deltas:  60% (14/23)        
+remote: Resolving deltas:  65% (15/23)        
+remote: Resolving deltas:  69% (16/23)        
+remote: Resolving deltas:  73% (17/23)        
+remote: Resolving deltas:  78% (18/23)        
+remote: Resolving deltas:  82% (19/23)        
+remote: Resolving deltas:  86% (20/23)        
+remote: Resolving deltas:  91% (21/23)        
+remote: Resolving deltas:  95% (22/23)        
+remote: Resolving deltas: 100% (23/23)        
+remote: Resolving deltas: 100% (23/23), completed with 22 local objects.        
 To https://github.com/jetech-trading/jetech-trading.github.io.git
- ! [remote rejected] main -&gt; main (protected branch hook declined)
-error: failed to push some refs to &#39;https://github.com/jetech-trading/jetech-trading.github.io.git&#39;
+   746e86d..bda4b39  main -&gt; main
 </pre></div>
 </div>
 </div>
@@ -524,13 +495,6 @@ By JeTech
   
   <div class="footer-item">
     
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
   </div>
   
   <div class="footer-item">
