@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'script';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book !
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fscript.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/script.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-book in c:\users\user\anaconda3\envs\tf\lib\site-packages (0.15.1)
+Requirement already satisfied: sphinx-book-theme~=1.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (1.0.1)
+Requirement already satisfied: sphinx-copybutton in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.5.2)
+Requirement already satisfied: sphinx-design~=0.3.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.3.0)
+Requirement already satisfied: jsonschema&lt;5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (4.17.3)
+Requirement already satisfied: docutils&lt;0.19,&gt;=0.15 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.18.1)
+Requirement already satisfied: sphinx&lt;6,&gt;=4 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (5.0.2)
+Requirement already satisfied: sphinx_togglebutton in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.3.2)
+Requirement already satisfied: myst-nb~=0.17.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.17.2)
+Requirement already satisfied: sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (2.5.0)
+Requirement already satisfied: sphinx-multitoc-numbering~=0.1.3 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.1.3)
+Requirement already satisfied: pyyaml in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (6.0)
+Requirement already satisfied: sphinx-comments in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.0.3)
+Requirement already satisfied: click&lt;9,&gt;=7.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (8.1.3)
+Requirement already satisfied: linkify-it-py~=2.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (2.0.2)
+Requirement already satisfied: sphinx-jupyterbook-latex~=0.5.2 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.5.2)
+Requirement already satisfied: Jinja2 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (3.1.2)
+Requirement already satisfied: sphinx-external-toc~=0.3.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.3.1)
+Requirement already satisfied: sphinx-thebe~=0.2.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-book) (0.2.1)
+Requirement already satisfied: colorama in c:\users\user\anaconda3\envs\tf\lib\site-packages (from click&lt;9,&gt;=7.1-&gt;jupyter-book) (0.4.6)
+Requirement already satisfied: attrs&gt;=17.4.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jsonschema&lt;5-&gt;jupyter-book) (22.1.0)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jsonschema&lt;5-&gt;jupyter-book) (0.18.0)
+Requirement already satisfied: uc-micro-py in c:\users\user\anaconda3\envs\tf\lib\site-packages (from linkify-it-py~=2.0.0-&gt;jupyter-book) (1.0.2)
+Requirement already satisfied: typing-extensions in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (4.5.0)
+Requirement already satisfied: jupyter-cache&lt;0.7,&gt;=0.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.6.1)
+Requirement already satisfied: nbformat~=5.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (5.7.0)
+Requirement already satisfied: ipykernel in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (6.19.2)
+Requirement already satisfied: ipython in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (8.12.0)
+Requirement already satisfied: myst-parser~=0.18.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.18.1)
+Requirement already satisfied: importlib_metadata in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (6.6.0)
+Requirement already satisfied: nbclient in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.5.13)
+Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (0.7.13)
+Requirement already satisfied: sphinxcontrib-jsmath in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.1)
+Requirement already satisfied: sphinxcontrib-applehelp in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.4)
+Requirement already satisfied: sphinxcontrib-htmlhelp&gt;=2.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.0.1)
+Requirement already satisfied: sphinxcontrib-qthelp in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.3)
+Requirement already satisfied: snowballstemmer&gt;=1.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.2.0)
+Requirement already satisfied: packaging in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (23.1)
+Requirement already satisfied: sphinxcontrib-devhelp in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.2)
+Requirement already satisfied: babel&gt;=1.3 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.11.0)
+Requirement already satisfied: requests&gt;=2.5.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.29.0)
+Requirement already satisfied: sphinxcontrib-serializinghtml&gt;=1.1.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.1.5)
+Requirement already satisfied: Pygments&gt;=2.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.15.1)
+Requirement already satisfied: imagesize in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.4.1)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from Jinja2-&gt;jupyter-book) (2.1.2)
+Requirement already satisfied: pydata-sphinx-theme&gt;=0.13.3 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.13.3)
+Requirement already satisfied: pybtex&gt;=0.24 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (0.24.0)
+Requirement already satisfied: pybtex-docutils&gt;=1.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.0.2)
+Requirement already satisfied: wheel in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx_togglebutton-&gt;jupyter-book) (0.38.4)
+Requirement already satisfied: setuptools in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sphinx_togglebutton-&gt;jupyter-book) (66.0.0)
+Requirement already satisfied: pytz&gt;=2015.7 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from babel&gt;=1.3-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2022.7)
+Requirement already satisfied: zipp&gt;=0.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from importlib_metadata-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.15.0)
+Requirement already satisfied: sqlalchemy&lt;3,&gt;=1.3.12 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.15)
+Requirement already satisfied: tabulate in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.9.0)
+Requirement already satisfied: mdit-py-plugins~=0.3.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.3.5)
+Requirement already satisfied: markdown-it-py&lt;3.0.0,&gt;=1.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.2.0)
+Requirement already satisfied: jupyter-client&gt;=6.1.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (8.1.0)
+Requirement already satisfied: nest-asyncio in c:\users\user\anaconda3\envs\tf\lib\site-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (1.5.6)
+Requirement already satisfied: traitlets&gt;=5.0.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.7.1)
+Requirement already satisfied: jupyter-core in c:\users\user\anaconda3\envs\tf\lib\site-packages (from nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.3.0)
+Requirement already satisfied: fastjsonschema in c:\users\user\anaconda3\envs\tf\lib\site-packages (from nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.16.2)
+Requirement already satisfied: latexcodec&gt;=1.0.4 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (2.0.1)
+Requirement already satisfied: six in c:\users\user\anaconda3\envs\tf\lib\site-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.16.0)
+Requirement already satisfied: beautifulsoup4 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (4.12.2)
+Requirement already satisfied: accessible-pygments in c:\users\user\anaconda3\envs\tf\lib\site-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.0.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.1.0)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.26.15)
+Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2022.12.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.4)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.6)
+Requirement already satisfied: comm&gt;=0.1.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.2)
+Requirement already satisfied: psutil in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.9.0)
+Requirement already satisfied: pyzmq&gt;=17 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (25.0.2)
+Requirement already satisfied: tornado&gt;=6.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (6.2)
+Requirement already satisfied: debugpy&gt;=1.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (1.5.1)
+Requirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.0.36)
+Requirement already satisfied: pickleshare in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.7.5)
+Requirement already satisfied: backcall in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: stack-data in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: decorator in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.18.1)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jedi&gt;=0.16-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.8.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-client&gt;=6.1.5-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.8.2)
+Requirement already satisfied: platformdirs&gt;=2.5 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-core-&gt;nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.5.2)
+Requirement already satisfied: pywin32&gt;=300 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from jupyter-core-&gt;nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (305.1)
+Requirement already satisfied: mdurl~=0.1 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from markdown-it-py&lt;3.0.0,&gt;=1.0.0-&gt;myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.2)
+Requirement already satisfied: wcwidth in c:\users\user\anaconda3\envs\tf\lib\site-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.5)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from sqlalchemy&lt;3,&gt;=1.3.12-&gt;jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.2)
+Requirement already satisfied: soupsieve&gt;1.2 in c:\users\user\anaconda3\envs\tf\lib\site-packages (from beautifulsoup4-&gt;pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (2.4)
+Requirement already satisfied: asttokens in c:\users\user\anaconda3\envs\tf\lib\site-packages (from stack-data-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.5)
+Requirement already satisfied: pure-eval in c:\users\user\anaconda3\envs\tf\lib\site-packages (from stack-data-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.2)
+Requirement already satisfied: executing in c:\users\user\anaconda3\envs\tf\lib\site-packages (from stack-data-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.8.3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>./
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[sphinxcontrib-bibtex] Beware that docutils versions 0.18 and 0.19 (you are running 0.18.1) are known to generate invalid html for citations. If this issue affects you, please use docutils&lt;0.18 (or &gt;=0.20 once released) instead. For more details, see https://sourceforge.net/p/docutils/patches/195/
+C:\Users\User\anaconda3\envs\tf\lib\site-packages\zmq\_future.py:681: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Jupyter-Book v0.15.1
+Source Folder: c:\workspace\jetech-trading.github.io
+Config Path: c:\workspace\jetech-trading.github.io\_config.yml
+Output Path: c:\workspace\jetech-trading.github.io\_build\html
+<span class=" -Color -Color-Bold">Running Sphinx v5.0.2</span>
+[etoc] Changing master_doc to &#39;intro&#39;
+<span class=" -Color -Color-Bold">loading pickled environment... </span>failed
+failed: source directory has changed
+checking bibtex cache... out of date
+parsing bibtex file c:\workspace\jetech-trading.github.io\references.bib... parsed 5 entries
+<span class=" -Color -Color-Bold">myst v0.18.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=[&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;tasklist&#39;], disable_syntax=[], all_links_external=False, url_schemes=[&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;], ref_domains=None, highlight_code_blocks=True, number_code_blocks=[], title_to_header=False, heading_anchors=None, heading_slug_func=None, footnote_transition=True, words_per_minute=200, sub_delimiters=(&#39;{&#39;, &#39;}&#39;), linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;)
+<span class=" -Color -Color-Bold">myst-nb v0.17.2:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, execution_mode=&#39;force&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: C:\workspace\jetech-trading.github.io\_build\.jupyter_cache
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 6 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 6 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[ 16%] <span class=" -Color -Color-Magenta">intro</span>                                                
+<span class=" -Color -Color-Bold">reading sources... </span>[ 33%] <span class=" -Color -Color-Magenta">markdown</span>                                             
+<span class=" -Color -Color-Bold">reading sources... </span>[ 50%] <span class=" -Color -Color-Magenta">markdown-notebooks</span>                                   
+c:\workspace\jetech-trading.github.io\markdown-notebooks.md: Executing notebook using local CWD [mystnb]
+c:\workspace\jetech-trading.github.io\markdown-notebooks.md: Executed notebook in 1.55 seconds [mystnb]
+<span class=" -Color -Color-Bold">reading sources... </span>[ 66%] <span class=" -Color -Color-Magenta">notebooks</span>                                            
+c:\workspace\jetech-trading.github.io\notebooks.ipynb: Executing notebook using local CWD [mystnb]
+c:\workspace\jetech-trading.github.io\notebooks.ipynb: Executed notebook in 1.96 seconds [mystnb]
+<span class=" -Color -Color-Bold">reading sources... </span>[ 83%] <span class=" -Color -Color-Magenta">research/Untitled</span>                                    
+c:\workspace\jetech-trading.github.io\research\Untitled.ipynb: Executing notebook using local CWD [mystnb]
+c:\workspace\jetech-trading.github.io\research\Untitled.ipynb: Executed notebook in 1.78 seconds [mystnb]
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">script</span>                                               
+c:\workspace\jetech-trading.github.io\script.ipynb: Executing notebook using local CWD [mystnb]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>.
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;update from colab&quot;</span>
+<span class="o">!</span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
