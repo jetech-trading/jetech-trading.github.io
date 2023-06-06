@@ -6,9 +6,10 @@ root: intro
 parts:
   - caption: Trading
     chapters:
-    - file: markdown
+#    - file: markdown
     - file: stock/stock
       sections:
+      - file: stock/20230606
       - file: markdown-notebooks
     - file: crypto/crypto
       sections:
@@ -16,4 +17,3 @@ parts:
   - caption: AI
     chapters:
     - file: research/research
-    - file: notebooks
