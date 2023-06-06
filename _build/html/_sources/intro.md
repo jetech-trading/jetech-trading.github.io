@@ -1,11 +1,7 @@
-# Welcome to your Jupyter Book !
+# JeTech 
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+안녕하세요 JeTech 입니다. 
 
-Check out the content pages bundled with this sample book to see more.
+JeTech는 재테크가 아닌 제 이름 한 글자(Je)와 Technology(Tech)의 합성어입니다. 
 
-```{tableofcontents}
-```
+단순한 재태크를 넘어 최신 기술들을 통해 시장을 분석하고있습니다.
