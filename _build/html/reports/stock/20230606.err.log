@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 778, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 182, in ensure_async
-    result = await obj
-  File "/usr/local/lib/python3.10/dist-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
@@ -20,17 +9,64 @@ Traceback (most recent call last):
     return future.result()
   File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1001, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 802, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 852, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-from google.colab import drive
-drive.mount('/content/drive')
--------------------
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.express as px
+
+fig = px.scatter_3d(df, x='PER_qt', y='PBR_qt', z='m5_qt', color='m6_qt', opacity=0.5, color_continuous_scale='gray', hover_data=['code'], hover_name='name')
+fig.show("svg")
+------------------
+
+
+[0;31m[0m
+[0;31mValueError[0mTraceback (most recent call last)
+[0;32m<ipython-input-5-e050e0407597>[0m in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0mfig[0m [0;34m=[0m [0mpx[0m[0;34m.[0m[0mscatter_3d[0m[0;34m([0m[0mdf[0m[0;34m,[0m [0mx[0m[0;34m=[0m[0;34m'PER_qt'[0m[0;34m,[0m [0my[0m[0;34m=[0m[0;34m'PBR_qt'[0m[0;34m,[0m [0mz[0m[0;34m=[0m[0;34m'm5_qt'[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'm6_qt'[0m[0;34m,[0m [0mopacity[0m[0;34m=[0m[0;36m0.5[0m[0;34m,[0m [0mcolor_continuous_scale[0m[0;34m=[0m[0;34m'gray'[0m[0;34m,[0m [0mhover_data[0m[0;34m=[0m[0;34m[[0m[0;34m'code'[0m[0;34m][0m[0;34m,[0m [0mhover_name[0m[0;34m=[0m[0;34m'name'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mfig[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m"svg"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/plotly/basedatatypes.py[0m in [0;36mshow[0;34m(self, *args, **kwargs)[0m
+[1;32m   3388[0m         [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mio[0m [0;32mas[0m [0mpio[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3389[0m [0;34m[0m[0m
+[0;32m-> 3390[0;31m         [0;32mreturn[0m [0mpio[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3391[0m [0;34m[0m[0m
+[1;32m   3392[0m     [0;32mdef[0m [0mto_json[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/plotly/io/_renderers.py[0m in [0;36mshow[0;34m(fig, renderer, validate, **kwargs)[0m
+[1;32m    386[0m [0;34m[0m[0m
+[1;32m    387[0m     [0;31m# Mimetype renderers[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 388[0;31m     [0mbundle[0m [0;34m=[0m [0mrenderers[0m[0;34m.[0m[0m_build_mime_bundle[0m[0;34m([0m[0mfig_dict[0m[0;34m,[0m [0mrenderers_string[0m[0;34m=[0m[0mrenderer[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    389[0m     [0;32mif[0m [0mbundle[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    390[0m         [0;32mif[0m [0;32mnot[0m [0mipython_display[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/plotly/io/_renderers.py[0m in [0;36m_build_mime_bundle[0;34m(self, fig_dict, renderers_string, **kwargs)[0m
+[1;32m    294[0m                         [0msetattr[0m[0;34m([0m[0mrenderer[0m[0;34m,[0m [0mk[0m[0;34m,[0m [0mv[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    295[0m [0;34m[0m[0m
+[0;32m--> 296[0;31m                 [0mbundle[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mrenderer[0m[0;34m.[0m[0mto_mimebundle[0m[0;34m([0m[0mfig_dict[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    297[0m [0;34m[0m[0m
+[1;32m    298[0m         [0;32mreturn[0m [0mbundle[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/plotly/io/_base_renderers.py[0m in [0;36mto_mimebundle[0;34m(self, fig_dict)[0m
+[1;32m    125[0m [0;34m[0m[0m
+[1;32m    126[0m     [0;32mdef[0m [0mto_mimebundle[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfig_dict[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 127[0;31m         image_bytes = to_image(
+[0m[1;32m    128[0m             [0mfig_dict[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    129[0m             [0mformat[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mformat[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/plotly/io/_kaleido.py[0m in [0;36mto_image[0;34m(fig, format, width, height, scale, validate, engine)[0m
+[1;32m    131[0m     [0;31m# Raise informative error message if Kaleido is not installed[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    132[0m     [0;32mif[0m [0mscope[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 133[0;31m         raise ValueError(
+[0m[1;32m    134[0m             """
+[1;32m    135[0m [0mImage[0m [0mexport[0m [0musing[0m [0mthe[0m [0;34m"kaleido"[0m [0mengine[0m [0mrequires[0m [0mthe[0m [0mkaleido[0m [0mpackage[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
 
