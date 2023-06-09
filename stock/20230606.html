@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>2023 5월 주식 데이터 리뷰 &#8212; Trading Research</title>
   
   
@@ -330,7 +331,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2023 5월 주식 데이터 리뷰<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -342,9 +343,9 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="id2">
+<section id="id2">
 <h2>주식 메타 데이터 불러오기<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<div class="section" id="id3">
+<section id="id3">
 <h3>데이터 분석 방향<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>보통 월간 데이터를 살펴볼 때 월 시작시 수집된 메타데이터와 월 시작, 종료시 모멘텀 데이터들을 기준으로 분석을 진행합니다.
 모멘텀은 한 달간 얼마나 상승했는지를 나타냅니다.</p>
@@ -363,10 +364,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-b26bb645-8c8a-453d-b15e-4c42255a3c13">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -476,87 +474,11 @@ document.write(`
     </tr>
   </tbody>
 </table>
+</div></div></div>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b26bb645-8c8a-453d-b15e-4c42255a3c13')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-b26bb645-8c8a-453d-b15e-4c42255a3c13 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b26bb645-8c8a-453d-b15e-4c42255a3c13');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
-</div>
-</div>
-</div>
-<div class="section" id="n">
+</section>
+</section>
+<section id="n">
 <h2>각 특성 데이터별 N분위 데이터로 변환<a class="headerlink" href="#n" title="Permalink to this heading">#</a></h2>
 <p>각 수치들이 실수데이터를 갖기때문에
 상대적인 크기를 비교하기 위해 N분위로 표기하도록 변경합니다</p>
@@ -602,7 +524,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4c19ae4283c2cc1a401e6a31f3b8fe95915801d363f628067dcab4cd7484539.png" src="../_images/b4c19ae4283c2cc1a401e6a31f3b8fe95915801d363f628067dcab4cd7484539.png" />
+<img alt="../_images/5383e6eca757267231ba55cde75eb44140f29e1cbb06f74a350ebcd8700ec4d3.png" src="../_images/5383e6eca757267231ba55cde75eb44140f29e1cbb06f74a350ebcd8700ec4d3.png" />
 </div>
 </div>
 <p>각 점에 여러 주식들이 겹칠 수 있고, 겹쳐진 주식의 수익률도 보일 수 있도록 투명도를 주었습니다.</p>
@@ -621,9 +543,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;ROE_qt&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/529ae1bd334057e94d848fc46904e7c686f3c63f27a03c43ced45c0c1e02824a.png" src="../_images/529ae1bd334057e94d848fc46904e7c686f3c63f27a03c43ced45c0c1e02824a.png" />
+<img alt="../_images/68902ce1e6ff0dc06e529f5a6da87cfc337636afd8e391c66b64dbc0d7b2226c.png" src="../_images/68902ce1e6ff0dc06e529f5a6da87cfc337636afd8e391c66b64dbc0d7b2226c.png" />
 </div>
 </div>
+<ul class="simple">
+<li><p>ROE, ROA가 낮을수록 오히려 수익률이 좋았습니다.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -635,9 +560,14 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;OIGR_qt&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2ac91291a546b3870c8017d68e7efae770004c9f583a6bbcc39e091200fc7bfe.png" src="../_images/2ac91291a546b3870c8017d68e7efae770004c9f583a6bbcc39e091200fc7bfe.png" />
+<img alt="../_images/3f624b5e8f82f32d431908334652b63de5f9bb39ae16cdcedc46cf871e92a117.png" src="../_images/3f624b5e8f82f32d431908334652b63de5f9bb39ae16cdcedc46cf871e92a117.png" />
 </div>
 </div>
+<ul class="simple">
+<li><p>영업이익 증가율에 대한 수익률입니다.</p></li>
+<li><p>해당 수치도 오히려 기대와 반대되는 수익률 양상을 보이고 있습니다.</p></li>
+<li><p>수집된 메타가 과거 데이터고, 그 사이 시장에 나타난 이벤트들과 발생된 추세가 많이 다른것을 볼 수 있습니다.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -649,7 +579,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;m5_qt&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/c9da7873e4a49d237cbb656c65671f03d35a48298acf88813f75a1bc6249a439.png" src="../_images/c9da7873e4a49d237cbb656c65671f03d35a48298acf88813f75a1bc6249a439.png" />
+<img alt="../_images/31a18f0805806f592b665093fe4c46a122c09da6d0e653c380ae8f1b125c88c9.png" src="../_images/31a18f0805806f592b665093fe4c46a122c09da6d0e653c380ae8f1b125c88c9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -675,8 +605,8 @@ ROA + ROE  필터링 평균 수익률 : 1.06
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
