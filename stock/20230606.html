@@ -336,6 +336,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -346,32 +348,10 @@ document.write(`
 <h3>데이터 분석 방향<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>보통 월간 데이터를 살펴볼 때 월 시작시 수집된 메타데이터와 월 시작, 종료시 모멘텀 데이터들을 기준으로 분석을 진행합니다.
 모멘텀은 한 달간 얼마나 상승했는지를 나타냅니다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stock_dt_table</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;dynamodb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;stock_dt&#39;</span><span class="p">)</span>
-<span class="n">stock_meta_table</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;dynamodb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;stock_meta&#39;</span><span class="p">)</span>
-<span class="n">stock_momentum_table</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;dynamodb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;stock_momentum&#39;</span><span class="p">)</span>
-<span class="n">stock_sector_table</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;dynamodb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;stock_sector&#39;</span><span class="p">)</span>
-
-<span class="n">meta_5_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stock_meta_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">KeyConditionExpression</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">dynamodb</span><span class="o">.</span><span class="n">conditions</span><span class="o">.</span><span class="n">Key</span><span class="p">(</span><span class="s1">&#39;dt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;20230501&#39;</span><span class="p">))[</span><span class="s1">&#39;Items&#39;</span><span class="p">])</span>
-
-<span class="n">momentum_5_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stock_momentum_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">KeyConditionExpression</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">dynamodb</span><span class="o">.</span><span class="n">conditions</span><span class="o">.</span><span class="n">Key</span><span class="p">(</span><span class="s1">&#39;dt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;20230501&#39;</span><span class="p">))[</span><span class="s1">&#39;Items&#39;</span><span class="p">])</span>
-<span class="n">momentum_6_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stock_momentum_table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">KeyConditionExpression</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">dynamodb</span><span class="o">.</span><span class="n">conditions</span><span class="o">.</span><span class="n">Key</span><span class="p">(</span><span class="s1">&#39;dt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;20230601&#39;</span><span class="p">))[</span><span class="s1">&#39;Items&#39;</span><span class="p">])</span>
-
-<span class="n">momentum_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">momentum_5_df</span><span class="p">,</span> <span class="n">momentum_6_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_5&#39;</span><span class="p">,</span> <span class="s1">&#39;_6&#39;</span><span class="p">))</span>
-<span class="n">momentum_df</span> <span class="o">=</span> <span class="n">momentum_df</span><span class="p">[[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;m30_5&#39;</span><span class="p">,</span> <span class="s1">&#39;m30_6&#39;</span><span class="p">]]</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">meta_5_df</span><span class="p">,</span> <span class="n">momentum_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;code&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">RR</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">RR</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">ROA</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ROA</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">OIGR</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">OIGR</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">ROE</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ROE</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">PER</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">PER</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">PBR</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">PBR</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/202305_stock_meta.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">code</span> <span class="o">!=</span> <span class="mi">50090</span><span class="p">]</span> <span class="c1"># 비케이홀딩스 무상감자 제외</span>
 </pre></div>
 </div>
 </div>
@@ -384,7 +364,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1aaeebd3-e2ff-448a-a75f-24db4e2c4d32">
+  <div id="df-b26bb645-8c8a-453d-b15e-4c42255a3c13">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -497,7 +477,7 @@ document.write(`
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1aaeebd3-e2ff-448a-a75f-24db4e2c4d32')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b26bb645-8c8a-453d-b15e-4c42255a3c13')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -548,12 +528,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1aaeebd3-e2ff-448a-a75f-24db4e2c4d32 button.colab-df-convert');
+          document.querySelector('#df-b26bb645-8c8a-453d-b15e-4c42255a3c13 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1aaeebd3-e2ff-448a-a75f-24db4e2c4d32');
+          const element = document.querySelector('#df-b26bb645-8c8a-453d-b15e-4c42255a3c13');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -600,46 +580,101 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m6_qt&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PER&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PBR&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PBR&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2023.4 momentum&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;2023.4 momentum&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PER&#39;</span><span class="p">)</span>
 <span class="c1">#set colormap in axes</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;5월 수익률&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;2023.5 profit&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/IPython/core/events.py:89: UserWarning: Glyph 50900 (\N{HANGUL SYLLABLE WEOL}) missing from current font.
-  func(*args, **kwargs)
-/usr/local/lib/python3.10/dist-packages/IPython/core/events.py:89: UserWarning: Glyph 49688 (\N{HANGUL SYLLABLE SU}) missing from current font.
-  func(*args, **kwargs)
-/usr/local/lib/python3.10/dist-packages/IPython/core/events.py:89: UserWarning: Glyph 51061 (\N{HANGUL SYLLABLE IG}) missing from current font.
-  func(*args, **kwargs)
-/usr/local/lib/python3.10/dist-packages/IPython/core/events.py:89: UserWarning: Glyph 47456 (\N{HANGUL SYLLABLE RYUL}) missing from current font.
-  func(*args, **kwargs)
+<img alt="../_images/b4c19ae4283c2cc1a401e6a31f3b8fe95915801d363f628067dcab4cd7484539.png" src="../_images/b4c19ae4283c2cc1a401e6a31f3b8fe95915801d363f628067dcab4cd7484539.png" />
+</div>
+</div>
+<p>각 점에 여러 주식들이 겹칠 수 있고, 겹쳐진 주식의 수익률도 보일 수 있도록 투명도를 주었습니다.</p>
+<p>평균적으로 띄는 색갈이 해당 분위에 해당하는 평균 수익률에 해당하는 색으로 이해하면 됩니다.</p>
+<p>사실 4월 모멘텀이 이번달에는 크게 도움이 되지 못한듯 합니다. 모멘텀 기준 차트를 보면, 직전달 높은 모멘텀이 오히려 수익이 저조한 것처럼 보입니다. 지난달까지 직전달 모멘텀이 큰 영향이 있었는데</p>
+<p>시장에서 어느정도 섹터가 돌고있구나라는 생각으로 이어질 수도 있을 것 같습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ROA_qt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;m30_6&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ROE_qt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;m30_6&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/IPython/core/pylabtools.py:151: UserWarning: Glyph 50900 (\N{HANGUL SYLLABLE WEOL}) missing from current font.
-  fig.canvas.print_figure(bytes_io, **kw)
-/usr/local/lib/python3.10/dist-packages/IPython/core/pylabtools.py:151: UserWarning: Glyph 49688 (\N{HANGUL SYLLABLE SU}) missing from current font.
-  fig.canvas.print_figure(bytes_io, **kw)
-/usr/local/lib/python3.10/dist-packages/IPython/core/pylabtools.py:151: UserWarning: Glyph 51061 (\N{HANGUL SYLLABLE IG}) missing from current font.
-  fig.canvas.print_figure(bytes_io, **kw)
-/usr/local/lib/python3.10/dist-packages/IPython/core/pylabtools.py:151: UserWarning: Glyph 47456 (\N{HANGUL SYLLABLE RYUL}) missing from current font.
-  fig.canvas.print_figure(bytes_io, **kw)
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;ROE_qt&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f17517fe10549e94964012c72b745aa930ff80b214154774b03133fb1dc293c3.png" src="../_images/f17517fe10549e94964012c72b745aa930ff80b214154774b03133fb1dc293c3.png" />
+<img alt="../_images/529ae1bd334057e94d848fc46904e7c686f3c63f27a03c43ced45c0c1e02824a.png" src="../_images/529ae1bd334057e94d848fc46904e7c686f3c63f27a03c43ced45c0c1e02824a.png" />
 </div>
 </div>
-<blockquote>
-<div><p>각 점에 여러 주식들이 겹칠 수 있고, 겹쳐진 주식의 수익률도 보일 수 있도록 투명도를 주었습니다.
-평균적으로 띄는 색갈이 해당 분위에 해당하는 평균 수익률에 해당하는 색으로 이해하면 됩니다.</p>
-</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;OIGR_qt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;m30_6&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;OIGR_qt&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/2ac91291a546b3870c8017d68e7efae770004c9f583a6bbcc39e091200fc7bfe.png" src="../_images/2ac91291a546b3870c8017d68e7efae770004c9f583a6bbcc39e091200fc7bfe.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;m30_6&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;m5_qt&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/c9da7873e4a49d237cbb656c65671f03d35a48298acf88813f75a1bc6249a439.png" src="../_images/c9da7873e4a49d237cbb656c65671f03d35a48298acf88813f75a1bc6249a439.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pbr_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PBR_qt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">per_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PER_qt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">roa_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ROA_qt&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ROA_qt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">roe_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ROE_qt&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ROE_qt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">m5_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;m5_qt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;전체 주식 평균 수익률 : </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;m30_6&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">,.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+      <span class="sa">f</span><span class="s1">&#39;PER + PBR + 모멘텀  필터링 평균 수익률: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="n">pbr_filter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">per_filter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">m5_filter</span><span class="p">][</span><span class="s2">&quot;m30_6&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">,.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+      <span class="sa">f</span><span class="s1">&#39;PER + PBR 필터링 평균 수익률 : </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="n">pbr_filter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">per_filter</span><span class="p">][</span><span class="s2">&quot;m30_6&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">,.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;ROA + ROE  필터링 평균 수익률 : </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="n">roa_filter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">roe_filter</span><span class="w"> </span><span class="p">][</span><span class="s2">&quot;m30_6&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">,.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>전체 주식 평균 수익률 : 1.05
+PER + PBR + 모멘텀  필터링 평균 수익률: 1.03
+PER + PBR 필터링 평균 수익률 : 1.03
+ROA + ROE  필터링 평균 수익률 : 1.06
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
