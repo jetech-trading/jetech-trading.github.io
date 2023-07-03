@@ -161,7 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../stock/stock.html">Stock</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../stock/20230606.html">2023 5월 주식 데이터 리뷰</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="crypto.html">Crypto</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -173,6 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../research/research.html">RL</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../research/20230618.html">강화학습 트레이딩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../research/20230630/20230630.html">추천 알고리즘을 통한 주식 트레이딩</a></li>
 </ul>
 </li>
 </ul>
@@ -343,7 +343,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-18be97f5-64ce-47c9-aa07-2370be6784b6">
+  <div id="df-205cd445-9dd2-4ac7-a694-076bed37926a">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -372,78 +372,78 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.663896</td>
-      <td>-0.178655</td>
-      <td>-0.559098</td>
-      <td>-0.592280</td>
+      <td>0.500753</td>
+      <td>-1.050104</td>
+      <td>-0.951240</td>
+      <td>0.118632</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.289917</td>
-      <td>2.783415</td>
-      <td>0.086986</td>
-      <td>-0.798689</td>
+      <td>1.073434</td>
+      <td>-0.243136</td>
+      <td>-1.311339</td>
+      <td>-0.362685</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.047646</td>
-      <td>-1.831236</td>
-      <td>1.064247</td>
-      <td>-0.322604</td>
+      <td>-0.251512</td>
+      <td>-1.819802</td>
+      <td>-0.371055</td>
+      <td>-0.267175</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.439589</td>
-      <td>0.603813</td>
-      <td>-1.372370</td>
-      <td>-0.238594</td>
+      <td>0.105606</td>
+      <td>0.232044</td>
+      <td>2.215059</td>
+      <td>1.388836</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.762865</td>
-      <td>0.301686</td>
-      <td>-0.546186</td>
-      <td>0.487897</td>
+      <td>1.352584</td>
+      <td>0.908933</td>
+      <td>-0.313653</td>
+      <td>-1.990064</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>2.050304</td>
-      <td>0.148110</td>
-      <td>-0.361969</td>
-      <td>-1.509087</td>
+      <td>0.185816</td>
+      <td>-1.982207</td>
+      <td>0.646169</td>
+      <td>0.684201</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>-1.070157</td>
-      <td>-0.344546</td>
-      <td>1.702257</td>
-      <td>-1.568955</td>
+      <td>-0.470975</td>
+      <td>-1.015965</td>
+      <td>0.688369</td>
+      <td>0.274773</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.439490</td>
-      <td>0.542114</td>
-      <td>0.049735</td>
-      <td>0.623619</td>
+      <td>-1.032695</td>
+      <td>-0.836419</td>
+      <td>0.484792</td>
+      <td>1.188271</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>-1.216865</td>
-      <td>0.600728</td>
-      <td>1.336988</td>
-      <td>-0.617348</td>
+      <td>1.064083</td>
+      <td>0.514388</td>
+      <td>0.318342</td>
+      <td>-2.527712</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>-1.163740</td>
-      <td>-0.288387</td>
-      <td>-0.210293</td>
-      <td>-1.733244</td>
+      <td>1.098961</td>
+      <td>1.578557</td>
+      <td>-0.476277</td>
+      <td>-0.339171</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-18be97f5-64ce-47c9-aa07-2370be6784b6')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-205cd445-9dd2-4ac7-a694-076bed37926a')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -494,12 +494,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-18be97f5-64ce-47c9-aa07-2370be6784b6 button.colab-df-convert');
+          document.querySelector('#df-205cd445-9dd2-4ac7-a694-076bed37926a button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-18be97f5-64ce-47c9-aa07-2370be6784b6');
+          const element = document.querySelector('#df-205cd445-9dd2-4ac7-a694-076bed37926a');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
