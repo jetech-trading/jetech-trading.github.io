@@ -9,7 +9,6 @@ parts:
     - file: stock/stock
       sections:
       - file: stock/20230606
-      - file: markdown-notebooks
     - file: crypto/crypto
       sections:
       - file: crypto/20230606 
@@ -18,3 +17,4 @@ parts:
     - file: research/research
       sections:
       - file: research/20230618
+      - file: research/20230630/20230630
